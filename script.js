@@ -1,20 +1,25 @@
-console.log('hey');
-let message = 'Be BOLD!';
-alert(message);
+/**
+ * ===== Troubleshooting =====
+ * The function below should log the number 2, however it does not, 
+ * see if you can fix it!
+ * Be sure to fix it in the spirit of the code, do not hard code the result.
+ */
 
-const myString = '123';
-const myNum = Number(myString);
-console.log(typeof myNum);
+ function troubleshooting() {
+	const a = 1;
+	const b = 1;
 
-const myNum2 = 123;
-const myString2 = myNum2.toString();
-console.log(typeof myString2);
+	let result;
 
-const button = document.querySelector('button');
+	// Edit between these lines
+	// =================================
+	// result = "a" + "b";
+	// Corrected Line
+	result = a + b;
+    
+	// =================================
 
-function greet() {
-  const name = prompt('What is your name?');
-  alert(`Hello ${name}, nice to see you!`);
+	return result;
 }
 
-button.addEventListener('click', greet);
+document.getElementById("demo").innerHTML = troubleshooting();
