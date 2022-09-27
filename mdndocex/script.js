@@ -29,3 +29,39 @@ function createCalendar(days, choice) {
     }
 }
 
+
+
+// More color choices
+
+const select = document.querySelector('select');
+const html = document.querySelector('.output');
+
+select.addEventListener('change', () => {
+  const choice = select.value;
+
+  // ADD SWITCH STATEMENT
+	switch(choice){
+		case "white":
+			update("black", "white");
+			break;
+		case "black":
+			update("white", "black");
+			break;
+		case "purple":
+			update("black", "purple");
+			break;
+		case "yellow":
+			update("black", "yellow");
+			break;
+		case "psychedelic":
+			update("black", "psychedelic");
+			break;
+		
+	}
+});
+
+function update(bgColor, textColor) {
+  html.style.backgroundColor = bgColor;
+  html.style.color = textColor;
+}
+
