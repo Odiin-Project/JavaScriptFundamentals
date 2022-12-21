@@ -5,35 +5,86 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Practice Exercises</title>
+    <title>Functions: Task 1</title>
+    <style>
+        p {
+            color: purple;
+            margin: 0.5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
     <!-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions#anonymous_functions_and_arrow_functions -->
     <h1>Javascript Functions</h1>
 
-    <input id="textBoss" type="text"></input>
-    <div id="outputer"></div>
-    <br\>    
-    <input id="textBox" type="text"></input>
-    <div id="output"></div>
+    <section class="preview"> </section>
+
+    <canvas id="canvas"></canvas>
+    <canvas id="stockGraph" width="150" height="150" color=""blue>
+        current stock price: $3.15 + 0.15
+      </canvas>
+      
+      <canvas id="clock" width="150" height="150">
+        <img src="/img/food.jpg" width="150" height="150" alt="A clock" />
+      </canvas>
+
+      
 
     <script>
-        const textBoss = document.querySelector("#textBoss");
-        const outputer = document.querySelector("#outputer");
+        const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+        const para = document.createElement('p');
 
-        // Anonymous Function - Function Without an Name
-        textBoss.addEventListener('keydown', function (event) {
-            console.log(`You pressed "${event.key}".`);
-            outputer.textContent = `You pressed "${event.key}".`
+        // Add your code here
 
-        });
-        const textBox = document.querySelector("#textBox");
-        const output = document.querySelector("#output");
+        function chooseName() {
+            var arrLen = names.length;
+            console.log(Math.floor(Math.random() * arrLen));
+            // Math.floor(Math.random() * max)
+            para.textContent = names[Math.floor(Math.random() * arrLen)]
+        }
 
-        // Arrow Function
-        textBox.addEventListener('keydown', (event) => output.textContent = `You pressed "${event.key}".`);
+        chooseName();
 
+        // Don't edit the code below here!
+
+        const section = document.querySelector('section');
+
+        section.appendChild(para);
+
+
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(10, 10, 150, 100);
+
+
+        function add(num){            
+            return typeof n === 'number' ? num + 7: "NaN";
+        }
+        alert(add("dg"));
+
+        function capitalize(word){      
+            let letter = word.slice(0, 1); 
+            let letters = word.slice(1, ((word.length)-1));      
+            return letter.toUpperCase() + letters;
+        }
+
+        alert(capitalize("dggtgt"));
+
+
+        function lastLetter(word){      
+            // let letter = word.slice(-1); 
+            return word.slice(-1);
+        }
+
+        alert(lastLetter("dggtgt"));
+        
     </script>
 
     <!-- <script src="./script.js"></script> -->
