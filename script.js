@@ -1,160 +1,73 @@
-/**
- * ===== Troubleshooting =====
- * The function below should log the number 2, however it does not, 
- * see if you can fix it!
- * Be sure to fix it in the spirit of the code, do not hard code the result.
- */
+const cars = ["Saab", "Volvo", "BMW"];
+console.log(cars.length);   // Returns the number of elements
+console.log(cars.sort());  // Sorts the array
 
- function troubleshooting() {
-	const a = 1;
-	const b = 1;
 
-	let result;
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
 
-	// Edit between these lines
-	// =================================
-	// result = "a" + "b";
-	// Corrected Line
-	result = a + b;
-    
-	// =================================
+let text = "<ul>";
+fruits.forEach(myFunction);
+text += "</ul>";
+document.getElementById("demo").innerHTML = text;
 
-	return result;
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+} 
+
+const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+
+for (const cat of cats) {
+  console.log(cat);
 }
 
-document.getElementById("demo").innerHTML = troubleshooting();
 
-
-// ***********************************************************************
-
-/**
- * The code below tells the browser to ask you for a number
- * then if that number is `6`, it returns `true` otherwise it returns `false`
- * 
- * Change this code so it returns `true` when the number is greater than or equal to 10, and false if it is less than 10
- */
-
- number = Number(prompt("enter a number"));
-
-//  function numberChecker() {
-// 	 if(number === 6) {
-// 		 console.log("true");
-// 		 return true;
-// 	 } else {
-// 		console.log("false");
-// 		 return false;
-// 	 }
-//  }
-
-// Corrected Lines
-
- function numberChecker() {
-	if(number >= 10) {
-		console.log("true");
-		return true;
-	} else {
-	   console.log("false");
-		return false;
-	}
-}
-
- numberChecker();
-
-// ***********************************************************************
-
-/**
-  Be sure to uncomment the items under each step below the editable section. Be sure to comment out the entire last step. If your code fails to run, or you see a "ReferenceError" in the console, make sure you have completed all of the objectives 
+function toUpper(string) {
+	return string.toUpperCase();
+  }
   
-  Don't forget you can put "console.log" anywhere to see what your values are at any time.
+//   const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
   
+  const upperCats = cats.map(toUpper);
   
-  
-	Step 1:
-	 Take a look at this code and try to predict what it's going to do before running it...
-	
-	After making your guess, press 'run' at the top and take a look at the output in the console. If you were surprised by anything, go back and look at the code to see what's going on.
-	
+  console.log(upperCats);
+  // [ "LEOPARD", "SERVAL", "JAGUAR", "TIGER", "CARACAL", "LION" ]
 
 
-
-	Step 2:
-	Once you have a good handle on the code snippet, delete the code then follow the following instructions between the lines and try to recreate the snippet on your own.
-	
-	---------------------------------------------------------------
-	
-	4 variables: first name, last name, current year, and birth year.
-	a 5th variable (greeting) that is constructed from the previous 4, it should contain a greeting with the person's full name and their age.
-	print the greeting with console.log
-	
-	---------------------------------------------------------------
-	
-	Once you have your version of the code working let's go back over it and edit it to make it easier to read.  After each step, make sure to run the code to make sure the code still works!
+  const filtered = cats.filter((cat) => cat.startsWith('L'));
+  console.log(filtered);
+  // [ "Leopard", "Lion" ]
 
 
+// ------------------------------------------------------------------
 
 
+const contacts = ['Chris:2232322', 'Sarah:3453456', 'Bill:7654322', 'Mary:9998769', 'Dianne:9384975'];
+const para = document.querySelector('p');
+const input = document.querySelector('input');
+const btn = document.querySelector('button');
 
-	Step 3:
-	Add 2 more variables: "fullName" and "age"
-
-	Edit the greeting string to use fullName and age instead of doing the calculations in the string itself. (the greeting should look something like this: "Hello, my name is " + fullName)
-
-	Do NOT simply type the full name and age into the new variables, but set them using the calculations that were originally being done in the greeting.
-	
-	===== NOTE ====
-	In order to make the tests pass you will need to use these exact values for the years and names.  The wording needs to be exact.  If the tests fail, check spacing and punctuation:
-	
-	birthYear = 1948
-	thisYear = 1965
-	firstName = Carlos
-	lastName = Stevenson
-
-	The greeting should say "Hello! My name is Carlos Stevenson and I am 17 years old."
-*/
-
-// Edit below this line =============
-const birthYear = 1948;
-const thisYear = 1965;
-const firstName = "Carlos";
-const lastName = "Stevenson";
-const fullName = firstName + " " + lastName;
-const age = thisYear - birthYear;
-
-
-
-const greeting = "Hello! My name is " + fullName + " and I am " + age + " years old.";
-
-console.log(greeting);
+btn.addEventListener('click', () => {
+  const searchName = input.value.toLowerCase();
+  input.value = '';
+  input.focus();
+  para.textContent = '';
+  for (const contact of contacts) {
+    const splitContact = contact.split(':');
+    if (splitContact[0].toLowerCase() === searchName) {
+      para.textContent = `${splitContact[0]}'s number is ${splitContact[1]}.`;
+      break;
+    }
+  }
+  if (para.textContent === '') {
+   para.textContent = 'Contact not found.';
+ }
+});
 
 
 
 
-// Edit above this line ==============
 
 
-// Testing your code
-
-// Step 2: 
-
-// module.exports = {
-// 	testGroup: "a",
-// 	greeting,
-// 	birthYear,
-// 	thisYear,
-// 	firstName,
-// 	lastName
-// }
 
 
-// Step 3: (Be sure to comment out Step 2)
 
-// module.exports = {
-// 	testGroup: "b",
-// 	greeting,
-// 	birthYear,
-// 	thisYear,
-// 	firstName,
-// 	lastName,
-// 	fullName,
-// 	age
-// }
